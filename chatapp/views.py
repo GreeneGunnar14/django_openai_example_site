@@ -46,4 +46,4 @@ def docs(request):
 def linksview(request):
   links = deepcopy(nav_dicts)
   links[2]['color'] = 'text-blue-600'
-  return render(request, 'chatapp/docs.html', {"nav_links": links})
+  return render(request, 'chatapp/links.html', {"nav_links": links})
