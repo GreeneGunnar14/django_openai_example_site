@@ -19,8 +19,9 @@ def index(request):
       max_tokens=1024,
     )
     display=""
+    response = response['choices'][0]['message']['content']
   else: 
-    prompt = ""
-    response = ""
+    prompt = "Prompt will appear here . . . "
+    response = "Your answer will appear here!"
     display = "display: hidden;"
-  return render(request, 'chatapp/index.html', {"prompt": prompt, "response": response['choices'][0]['message']['content'], "display": display})
+  return render(request, 'chatapp/index.html', {"prompt": prompt, "response": response, "display": display})
