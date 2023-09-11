@@ -18,8 +18,7 @@ Once you have credits and an API key
   * navigate to the parent directory of the project
   * run the command `python -m venv venv && source venv/bin/activate`
   * run the command `pip install -r requirements.txt`
-  * run the command `python setup_script.py`
-  * follow the prompts from the script
-  * open the .env file and put your API key in place of `<Your-API-key-here>`
+  * run the command `OPENAI_API_KEY='Your_api_key_here' > .env`
+    * Make sure to paste your API key into the correct spot in the command or open the .env file and paste the key there
   * run the command `python manage.py runserver`
 * Open a web browser and navigate to 127.0.0.1:8000
