@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  },
+  "scripts": {
+    "tailwind-watch": "tailwind -i ../input.css -o ../chatapp/static/output.css --watch"
+  }
+}
