@@ -11,7 +11,7 @@ TEXT_PURP = 'text-purple-600'
 nav_dicts = [
   {'name': 'Home', 'color': TEXT_PURP, 'path': '/'},
   {'name': 'Documentation', 'color': TEXT_PURP, 'path': 'docs'},
-  {'name': 'Links', 'color': TEXT_PURP, 'path': ''}
+  {'name': 'Links', 'color': TEXT_PURP, 'path': 'links'}
 ]
 
 # Create your views here.
@@ -41,4 +41,9 @@ def index(request):
 def docs(request):
   links = deepcopy(nav_dicts)
   links[1]['color'] = 'text-blue-600'
+  return render(request, 'chatapp/docs.html', {"nav_links": links})
+
+def linksview(request):
+  links = deepcopy(nav_dicts)
+  links[2]['color'] = 'text-blue-600'
   return render(request, 'chatapp/docs.html', {"nav_links": links})
