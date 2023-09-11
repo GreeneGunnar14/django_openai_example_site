@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  {% load static %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Coded AI</title>
+  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'output.css' %}">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-cyan-500 to-purple-400 font-lato h-full">
+  <div class="max-w-screen-xl mx-auto min-h-screen h-full">
+    <header class="sticky top-0 flex flex-row justify-between rounded-lg bg-gradient-to-br from-white to-slate-200 shadow-md items-baseline">
+      <h1 class="p-4 text-7xl font-black text-purple-600">Color <span class="text-blue-500">Coded</span> AI</h1>
+      <nav class="p-4 flex gap-4 text-4xl">
+        {% for link in nav_links %}
+        <a href="{{ link.name }}" class="h-fit font-bold {{ link.color }} hover:cursor-pointer hover:text-purple-800">{{ link.name }}</a>
+        {% endfor %}
+      </nav>
+    </header>
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

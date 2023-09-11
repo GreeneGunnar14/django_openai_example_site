@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  {% load static %}
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Coded AI</title>
-  <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon">
-  <link rel="stylesheet" href="{% static 'output.css' %}">
-</head>
-<body class="flex flex-col justify-center h-screen max-w-2xl mx-auto bg-gradient-to-br from-cyan-500 to-purple-400 font-lato">
-  <section class="card rounded-lg bg-white p-10 shadow-xl">
-    <h1 class="text-center p-4 text-7xl font-black mb-10 text-purple-600 rounded-lg bg-gradient-to-br from-white to-slate-200 shadow-md">Color <span class="text-blue-500">Coded</span> AI</h1>
+{% extends 'chatapp/base.html' %}
+
+{% block content %}
+<div class="card_box max-w-2xl mx-auto flex flex-col justify-center h-5/6">
+  <div class="card rounded-lg bg-slate-100 p-10 shadow-xl max-h-fit">
     <section class="output text-gray-800 flex flex-col justify-center gap-5">
       <div class="prompt border-spacing-4 border-blue-600 border-2 text-center p-2 rounded-md">{{ prompt }}</div>
       <div class="response border-spacing-4 border-purple-600 border-2 p-2 rounded-md max-h-48 overflow-y-scroll">{{ response|safe }}</div>
     </section>
     <form action="" method="post" class="grid grid-rows-2 w-7/12 gap-5 mt-10 mx-auto">
-      <input class="border-blue-400 border-2 rounded-md p-2" type="text" name="prompt" id="prompt" maxlength="100" placeholder="Enter a message . . . ">
+      <input class="border-blue-400 border-2 rounded-md p-2" type="text" name="prompt" id="prompt" maxlength="100" placeholder="Enter a prompt . . . ">
       <input class="p-5 rounded-md text-white text-xl font-semibold bg-blue-600 hover:bg-blue-500 cursor-pointer" type="submit" value="Send">
       {% csrf_token %}
     </form>
-  </section>
-</body>
-</html>
+  </div>
+</div>
+{% endblock %}

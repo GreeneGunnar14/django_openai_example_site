@@ -1,8 +1,18 @@
 import os
 import openai
 
+from copy import deepcopy
+
 from django.shortcuts import render
 from openai_chatter.settings import API_KEY
+
+TEXT_PURP = 'text-purple-600'
+
+nav_dicts = [
+  {'name': 'Home', 'color': TEXT_PURP},
+  {'name': 'Documentation', 'color': TEXT_PURP},
+  {'name': 'Links', 'color': TEXT_PURP}
+]
 
 # Create your views here.
 def index(request):
@@ -24,4 +34,6 @@ def index(request):
     prompt = "Prompt will appear here . . . "
     response = "Your answer will appear here!"
     display = "display: hidden;"
-  return render(request, 'chatapp/index.html', {"prompt": prompt, "response": response, "display": display})
+  links = deepcopy(nav_dicts)
+  links[0]['color'] = 'text-blue-600'
+  return render(request, 'chatapp/index.html', {"prompt": prompt, "response": response, "display": display, "nav_links": links})
